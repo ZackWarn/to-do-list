@@ -1,24 +1,18 @@
-package com.example.to_dolist.ui.theme
-
-import android.R.attr.id
 import com.example.to_dolist.todo
-import java.time.Instant
-import java.util.Date
 
 object todoManager {
     private val todoList = mutableListOf<todo>()
+    private var nextId = 1
 
-    fun getallTodo():List<todo>{
+    fun getallTodo(): List<todo> {
         return todoList
     }
 
-    fun addTodo(title:String){
-        todoList.add(todo(System.currentTimeMillis().toInt(),title,Date.from(Instant.now())))
+    fun addTodo(title: String) {
+        todoList.add(todo(nextId++, title, System.currentTimeMillis()))
     }
 
-    fun deleteTodo(id:Int){
-        todoList.removeIf{
-            it.id==id}
+    fun deleteTodo(id: Int) {
+        todoList.removeIf { it.id == id }
     }
-
 }

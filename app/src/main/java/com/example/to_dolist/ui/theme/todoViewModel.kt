@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.example.to_dolist.todo
 
 
-class todoViewModel : ViewModel() {
+open class todoViewModel : ViewModel() {
     private var _todoList= MutableLiveData<List<todo>>()
-    val todoList: LiveData<List<todo>> = _todoList
+    open val todoList: LiveData<List<todo>> = _todoList
 
 
     fun getallTodo(){
